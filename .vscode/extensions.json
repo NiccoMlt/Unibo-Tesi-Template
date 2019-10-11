@@ -1,5 +1,6 @@
 {
-    "recommendations": [
-        "KnisterPeter.vscode-commitizen"
-    ]
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "KnisterPeter.vscode-commitizen"
+  ]
 }
