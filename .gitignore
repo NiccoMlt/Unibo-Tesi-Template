@@ -44,6 +44,7 @@
 *.xdv
 *-converted-to.*
 # these rules might exclude image files for figures etc.
+*-frn.tex
 *.ps
 *.eps
 *.pdf

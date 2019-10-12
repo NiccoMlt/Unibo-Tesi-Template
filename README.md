@@ -47,7 +47,7 @@ In particolare, segnalo:
     - [Introduzione a XeLaTeX](http://profs.sci.univr.it/~gregorio/introxelatex.pdf), di Enrico Gregorio;
     - [L’arte di scrivere in diverse lingue con XeLaTeX](http://www.guitex.org/home/images/doc/ArteLingue.pdf), di Claudio Beccari;
     - [Creare file archiviabili con pdfLaTeX e LuaLaTeX](http://www.guitex.org/home/images/doc/GuideGuIT/filearchiviabili.pdf), di Claudio Beccari.
-- Per approfondire la gestione dei font:
+- Per approfondire la gestione di font e tipografia:
     - [Tipocomporre in italiano](http://www.guitex.org/home/images/doc/GuideGuIT/ComporreItaliano.pdf), di Claudio Beccari;
     - [Font e tipografia](http://www.guitex.org/home/images/doc/GuideGuIT/guidafont.pdf), di Claudio Beccari.
 - Per approfondire arara:
@@ -57,3 +57,4 @@ In particolare, segnalo:
     - [Scrivere la tesi di laurea in LaTeX](http://www.guitex.org/home/images/doc/GuideGuIT/IntroTesi.pdf), di Agostino De Marco;
     - [La bibliografia in biblatex e i programmi di gestione dei record](http://www.guitex.org/home/images/doc/GuideGuIT/bibliografia.pdf), di Filippo Vomiero;
     - [TOPtesi Class documentation (Italian)](http://ctan.mirror.garr.it/mirrors/CTAN/macros/latex/contrib/toptesi/toptesi-it.pdf), di Claudio Beccari.
+    - [frontespizio package documentation (Italian)](http://ctan.mirror.garr.it/mirrors/CTAN/macros/latex/contrib/frontespizio/frontespizio.pdf)

@@ -1,10 +1,12 @@
-% !TeX encoding = UTF-8
+% !TeX root = ./tesi.tex
+% !TeX encoding = UTF-8 Unicode
 % !TeX spellcheck = it_IT
 % !TeX program = arara
 % !TeX options = --log --verbose --language=it "%DOC%"
 
-% arara: lualatex: { interaction: batchmode }
-% arara: lualatex: { interaction: nonstopmode, synctex: yes }
+% arara: lualatex:      { interaction: batchmode }
+% arara: frontespizio:  { interaction: batchmode, engine: lualatex }
+% arara: lualatex:      { interaction: nonstopmode, synctex: yes }
 
 \documentclass[%
   a4paper,              % formato di pagina A4
@@ -74,6 +76,15 @@
 % non è necessario \usepackage{indentfirst} perché con lualatex il rientro del primo capoverso è preimpostato
 
 %% Altri pacchetti
+\usepackage[%
+  write,                % (write|nowrite) genera o meno il file
+  standard,             % (standard|suftesi) specifica tipo di frontespizio
+  normal,               % (normal|sans) usa font con grazie anziché senza
+  noinputenc,
+  % norules,            % non vengono inseriti filetti nel frontespizio
+  nouppercase,          % con questa opzione verrà rispettato il maiuscolo e il minuscolo
+  driver=luatex         % imposta la chiamata di graphicx nel documento frn per l’uso di un driver diverso da dvips o pdftex
+]{frontespizio}
 \usepackage{geometry}           % permettte la modifica della gabbia del documento
 \geometry{
   a4paper,              % formato di pagina
@@ -85,7 +96,9 @@
 \onehalfspacing{}       % imposta interlinea a 1,5 ed equivale a \linespread{1,5}
 
 %% Definizioni di comandi e ambienti
-\pagestyle{headings}    % configura lo stile di pagina, lascia il piede vuoto e compone le testatine
+%% Definisco un nuovo comando per enfatizzare il testo in inglese %%%%%%%%%%%
+\newcommand{\engEmph}[1] {\emph{\foreignlanguage{english}#1}}
+
 
 \usepackage{microtype}          % gestisce la microtipografia
 
@@ -110,5 +123,13 @@
 ]{cleveref}                     % permette di usare riferimenti migliori dei \ref e dei varioref
 
 \begin{document}
+
+  \frontmatter{}
+  \pagenumbering{Roman}
+  \pagestyle{empty}
+  \input{src/1-frontmatter/frontespizio.tex}
+  \mainmatter{}
+  \pagenumbering{arabic}
+  \pagestyle{headings}
 Minimo documento
 \end{document}
