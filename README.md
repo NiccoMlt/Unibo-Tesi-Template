@@ -24,6 +24,12 @@ Il template è pensato per essere usato con il motore **LuaLaTeX** e non il "tra
 
 Inoltre, per semplificare il processo di sviluppo del documento, si intende supportare [**arara**](https://github.com/cereda/arara) come _build tool_ e **VisualStudio Code** come _ambiente di lavoro_, grazie all'ausilio del plugin [**LaTeX Workshop**](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop).
 
+Il template utilizza la classe [`scrbook`](https://www.ctan.org/pkg/scrbook) (alternativa della collezione [KOMA-script](https://www.ctan.org/pkg/koma-script) della classe `book`) e definisce una dimensione del testo di 12pt, con margini identici di 2,5cm e interlinea con scartamento 1,5.
+
+Il font utilizzato è il _Latin Modern_ OpenType in tutte le varianti.
+
+## Riferimenti
+
 Per la realizzazione del template sono state molto utili, oltre a questi ultimi anni di utilizzo di LaTeX per la stesura di numerosi documenti, le guide fornite dal [GuIT](https://www.guitex.org/home/it/doc).
 
 In particolare, segnalo:
