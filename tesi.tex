@@ -1,14 +1,79 @@
-% !TEX encoding = UTF-8
-% !TEX program = arara
-% !TEX options = --log --verbose --language it "%DOC%"
+% !TeX encoding = UTF-8
+% !TeX spellcheck = it_IT
+% !TeX program = arara
+% !TeX options = --log --verbose --language=it "%DOC%"
 
+% arara: lualatex: { interaction: batchmode }
 % arara: lualatex: { interaction: nonstopmode, synctex: yes }
 
-\documentclass{scrbook}
+\documentclass[%
+  a4paper,            % formato di pagina A4
+  12pt,               % corpo del testo a 12pt
+  % la dimensione 12pt automaticamente imposta \footnotesize a 10pt
+  twoside,            % (oneside|twoside) documento a singola o doppia facciata,
+  openright,          % (openany|openright) fa cominciare un capitolo nella successiva pagina a disposizione o sempre in una pagina destra
+  % twocolumn,        % dà a LaTeX le istruzioni per comporre l’intero documento su due colonne
+  titlepage,          % (titlepage|notitlepage) se dopo il titolo del documento debbaavere  inizio  una  nuova  pagina
+  % fleqn,            % allinea le formule a sinistra rispetto a un margine rientrato
+  % leqno,            % mette la numerazione delle formule a sinistra anziché a destra
+  final               % (draft|final) scelta tra bozza o finale, influenza il comportamento degli altri pacchetti
+]{scrbook}
 
+%% Font
+% non è necessario \usepackage[utf8]{inputenc} perché luaLaTeX accetta solo UTF-8
 \usepackage{fontspec}
+\setmainfont[%
+  % Ligatures=TeX     % abilita legature classiche di LaTeX
+]{Latin Modern Roman}     % imposta il font con grazie per il testo principale
+\setsansfont[%
+  % Ligatures=TeX     % abilita legature classiche di LaTeX
+]{Latin Modern Sans}      % imposta il font senza grazie
+\setmonofont[%
+  % Ligatures=TeX     % abilita legature classiche di LaTeX
+]{Latin Modern Mono}      % imposta il font teletype monospaziato
+
+%% Matematica
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\setmathfont[%
+  % Ligatures=TeX     % abilita legature classiche di LaTeX
+]{Latin Modern Math}
+\usepackage[%
+  binary-units        % abilita le espressioni per bit e byte
+]{siunitx}                % permette di definire numeri con unità di misura
+
+%% Lingue
+\usepackage[%
+  strict=true,        % converte tutti i warning in errori
+  autostyle=true,     % adatta continuamente lo stile delle virgolette alla lingua
+  english=american,   % imposta lo stile per l'inglese
+  italian=guillemets  % imposta lo stile per l'italiano
+]{csquotes}
 \usepackage{polyglossia}
-\setmainlanguage{italian}
+\setmainlanguage[%
+  babelshorthands     % attiva il carattere " come switch per virgolettature etimologiche
+]{italian}                % imposta l'italiano come lingua principale
+\setotherlanguage[%
+  variant=american    % imposta la variante americana dell'inglese
+]{english}                % imposta l'inglese come lingua secondaria
+% non è necessario \usepackage{indentfirst} perché con lualatex il rientro del primo capoverso è preimpostato
+
+%% Altri pacchetti
+\usepackage{geometry}     % permettte la modifica della gabbia del documento
+\geometry{
+  a4paper,            % formato di pagina
+  heightrounded,      % modifica di poco le dimensioni della gabbia per contenere un numero intero di righe
+  hmargin=2.5cm,      % dimensioni margini destro-sinistro
+  vmargin=2.5cm       % dimensioni margini superiore-inferiore
+}
+\usepackage{setspace}     % serve a fornire comandi di interlinea standard
+\onehalfspacing{}     % imposta interlinea a 1,5 ed equivale a \linespread{1,5}
+
+%% Definizioni di comandi e ambienti
+\pagestyle{headings}  % configura lo stile di pagina, lascia il piede vuoto e compone le testatine
+
+%% Microtipografia
+\usepackage{microtype}
 
 \begin{document}
 Minimo documento
