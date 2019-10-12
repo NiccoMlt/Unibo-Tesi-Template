@@ -99,6 +99,19 @@
 %% Definisco un nuovo comando per enfatizzare il testo in inglese %%%%%%%%%%%
 \newcommand{\engEmph}[1] {\emph{\foreignlanguage{english}#1}}
 
+%% Aggiunge pagine bianche vuote %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}%
+%\cleardoublepage}}
+\clearpage}}
+
+%% Definisce l'environment abstract per la classe book %%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\newenvironment{abstract}%
+  {\cleardoublepage%
+    \thispagestyle{empty}%
+    \null\vfill\begin{center}%
+      \bfseries\abstractname\end{center}}%
+  {\vfill\null}
 
 \usepackage{microtype}          % gestisce la microtipografia
 
@@ -128,6 +141,9 @@
   \pagenumbering{Roman}
   \pagestyle{empty}
   \input{src/1-frontmatter/frontespizio.tex}
+  \input{src/1-frontmatter/keywords.tex}
+  \input{src/1-frontmatter/dedica.tex}
+  \input{src/1-frontmatter/abstract.tex}
   \mainmatter{}
   \pagenumbering{arabic}
   \pagestyle{headings}
