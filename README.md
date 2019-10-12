@@ -1,6 +1,8 @@
 # Unibo Tesi
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 
 Template LaTeX per una tesi Unibo
 
@@ -27,6 +29,8 @@ Inoltre, per semplificare il processo di sviluppo del documento, si intende supp
 Il template utilizza la classe [`scrbook`](https://www.ctan.org/pkg/scrbook) (alternativa della collezione [KOMA-script](https://www.ctan.org/pkg/koma-script) della classe `book`) e definisce una dimensione del testo di 12pt, con margini identici di 2,5cm e interlinea con scartamento 1,5.
 
 Il font utilizzato è il _Latin Modern_ OpenType in tutte le varianti.
+
+Il PDF generato è conforme allo standard PDF/A-1b.
 
 ## Riferimenti
 

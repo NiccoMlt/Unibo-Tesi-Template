@@ -250,6 +250,9 @@ pythontex-files-*/
 # xmpincl
 *.xmpi
 
+# xmpdata
+*.xmpdata
+
 # xindy
 *.xdy
 

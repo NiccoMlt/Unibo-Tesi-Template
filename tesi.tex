@@ -7,73 +7,107 @@
 % arara: lualatex: { interaction: nonstopmode, synctex: yes }
 
 \documentclass[%
-  a4paper,            % formato di pagina A4
-  12pt,               % corpo del testo a 12pt
+  a4paper,              % formato di pagina A4
+  12pt,                 % corpo del testo a 12pt
   % la dimensione 12pt automaticamente imposta \footnotesize a 10pt
-  twoside,            % (oneside|twoside) documento a singola o doppia facciata,
-  openright,          % (openany|openright) fa cominciare un capitolo nella successiva pagina a disposizione o sempre in una pagina destra
-  % twocolumn,        % dà a LaTeX le istruzioni per comporre l’intero documento su due colonne
-  titlepage,          % (titlepage|notitlepage) se dopo il titolo del documento debbaavere  inizio  una  nuova  pagina
-  % fleqn,            % allinea le formule a sinistra rispetto a un margine rientrato
-  % leqno,            % mette la numerazione delle formule a sinistra anziché a destra
-  final               % (draft|final) scelta tra bozza o finale, influenza il comportamento degli altri pacchetti
+  twoside,              % (oneside|twoside) documento a singola o doppia facciata,
+  openright,            % (openany|openright) fa cominciare un capitolo nella successiva pagina a disposizione o sempre in una pagina destra
+  % twocolumn,          % dà a LaTeX le istruzioni per comporre l’intero documento su due colonne
+  titlepage,            % (titlepage|notitlepage) se dopo il titolo del documento debbaavere  inizio  una  nuova  pagina
+  % fleqn,              % allinea le formule a sinistra rispetto a un margine rientrato
+  % leqno,              % mette la numerazione delle formule a sinistra anziché a destra
+  final                 % (draft|final) scelta tra bozza o finale, influenza il comportamento degli altri pacchetti
 ]{scrbook}
+
+\usepackage{fancyvrb}
+
+\begin{VerbatimOut}{\jobname.xmpdata}
+\Title{Titolo}
+\Subject{Oggetto}
+\Author{Niccolò Maltoni}
+\Copyright{Questo documento è fornito sotto licenza Apache License, Version 2.0}
+\CopyrightURL{https://opensource.org/licenses/Apache-2.0}
+\end{VerbatimOut}
+
+\usepackage[italian]{varioref}  % introduce il comando \vref da usarsi nello stesso modo del comune \ref per i riferimenti
+
+\usepackage[a-1b]{pdfx}
 
 %% Font
 % non è necessario \usepackage[utf8]{inputenc} perché luaLaTeX accetta solo UTF-8
 \usepackage{fontspec}
 \setmainfont[%
-  % Ligatures=TeX     % abilita legature classiche di LaTeX
-]{Latin Modern Roman}     % imposta il font con grazie per il testo principale
+  % Ligatures=TeX       % abilita legature classiche di LaTeX
+]{Latin Modern Roman}           % imposta il font con grazie per il testo principale
 \setsansfont[%
-  % Ligatures=TeX     % abilita legature classiche di LaTeX
-]{Latin Modern Sans}      % imposta il font senza grazie
+  % Ligatures=TeX       % abilita legature classiche di LaTeX
+]{Latin Modern Sans}            % imposta il font senza grazie
 \setmonofont[%
-  % Ligatures=TeX     % abilita legature classiche di LaTeX
-]{Latin Modern Mono}      % imposta il font teletype monospaziato
+  % Ligatures=TeX       % abilita legature classiche di LaTeX
+]{Latin Modern Mono}            % imposta il font teletype monospaziato
 
 %% Matematica
 \usepackage{amsmath}
+% non bisogna assolutamente invocare il pacchetto amssymb
 \usepackage{unicode-math}
 \setmathfont[%
-  % Ligatures=TeX     % abilita legature classiche di LaTeX
+  % Ligatures=TeX       % abilita legature classiche di LaTeX
 ]{Latin Modern Math}
 \usepackage[%
-  binary-units        % abilita le espressioni per bit e byte
-]{siunitx}                % permette di definire numeri con unità di misura
+  binary-units          % abilita le espressioni per bit e byte
+]{siunitx}                      % permette di definire numeri con unità di misura
 
 %% Lingue
 \usepackage[%
-  strict=true,        % converte tutti i warning in errori
-  autostyle=true,     % adatta continuamente lo stile delle virgolette alla lingua
-  english=american,   % imposta lo stile per l'inglese
-  italian=guillemets  % imposta lo stile per l'italiano
-]{csquotes}
+  strict=true,          % converte tutti i warning in errori
+  autostyle=true,       % adatta continuamente lo stile delle virgolette alla lingua
+  english=american,     % imposta lo stile per l'inglese
+  italian=guillemets    % imposta lo stile per l'italiano
+]{csquotes}                     % configura le virgolette secondo gli stnadard della lingua
 \usepackage{polyglossia}
 \setmainlanguage[%
-  babelshorthands     % attiva il carattere " come switch per virgolettature etimologiche
-]{italian}                % imposta l'italiano come lingua principale
+  babelshorthands       % attiva il carattere " come switch per virgolettature etimologiche
+]{italian}                      % imposta l'italiano come lingua principale
 \setotherlanguage[%
-  variant=american    % imposta la variante americana dell'inglese
-]{english}                % imposta l'inglese come lingua secondaria
+  variant=american      % imposta la variante americana dell'inglese
+]{english}                      % imposta l'inglese come lingua secondaria
 % non è necessario \usepackage{indentfirst} perché con lualatex il rientro del primo capoverso è preimpostato
 
 %% Altri pacchetti
-\usepackage{geometry}     % permettte la modifica della gabbia del documento
+\usepackage{geometry}           % permettte la modifica della gabbia del documento
 \geometry{
-  a4paper,            % formato di pagina
-  heightrounded,      % modifica di poco le dimensioni della gabbia per contenere un numero intero di righe
-  hmargin=2.5cm,      % dimensioni margini destro-sinistro
-  vmargin=2.5cm       % dimensioni margini superiore-inferiore
+  a4paper,              % formato di pagina
+  heightrounded,        % modifica di poco le dimensioni della gabbia per contenere un numero intero di righe
+  hmargin=2.5cm,        % dimensioni margini destro-sinistro
+  vmargin=2.5cm         % dimensioni margini superiore-inferiore
 }
-\usepackage{setspace}     % serve a fornire comandi di interlinea standard
-\onehalfspacing{}     % imposta interlinea a 1,5 ed equivale a \linespread{1,5}
+\usepackage{setspace}           % serve a fornire comandi di interlinea standard
+\onehalfspacing{}       % imposta interlinea a 1,5 ed equivale a \linespread{1,5}
 
 %% Definizioni di comandi e ambienti
-\pagestyle{headings}  % configura lo stile di pagina, lascia il piede vuoto e compone le testatine
+\pagestyle{headings}    % configura lo stile di pagina, lascia il piede vuoto e compone le testatine
 
-%% Microtipografia
-\usepackage{microtype}
+\usepackage{microtype}          % gestisce la microtipografia
+
+% \usepackage{hyperref}         % gestisce tutte le cose ipertestuali del pdf; importato automaticamente
+\hypersetup{%
+  pdfpagemode={UseNone},
+  hidelinks,            % nasconde i collegamenti (non vengono quadrettati)
+  hypertexnames=false,
+  linktoc=all,          % inserisce i link nell'indice
+  unicode=true,         % usa solo caratteri Latini nei segnalibri di Acrobat
+  pdftoolbar=false,     % nasconde la toolbar di Acrobat
+  pdfmenubar=false,     % nasconde il menu di Acrobat
+  plainpages=false,
+  breaklinks,
+  pdfstartview={Fit},
+  pdflang={it}
+}
+
+\usepackage[%
+  italian,              % definizione delle lingue da usare
+  nameinlink            % inserisce i link nei riferimenti
+]{cleveref}                     % permette di usare riferimenti migliori dei \ref e dei varioref
 
 \begin{document}
 Minimo documento
