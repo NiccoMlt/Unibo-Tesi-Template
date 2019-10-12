@@ -1,0 +1,40 @@
+{
+  "files.associations": {"*.czrc": "json"},
+  "latex-workshop.chktex.delay": 1000,
+  "latex-workshop.chktex.enabled": true,
+  "latex-workshop.chktex.run": "onType",
+  "latex-workshop.hover.command.enabled": true,
+  "latex-workshop.hover.preview.enabled": true,
+  "latex-workshop.hover.ref.enabled": true,
+  "latex-workshop.intellisense.citation.label": "title",
+  "latex-workshop.intellisense.package.enabled": true,
+  "latex-workshop.latex.recipe.default": "lastUsed",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "arara",
+      "tools": [
+        "arara"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "arara",
+      "command": "arara",
+      "args": [
+        "--language=it",
+        "--log",
+        "--verbose",
+        "%DOCFILE%"
+      ],
+      "env": {}
+    }
+  ],
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "latex-workshop.texdoc.path": "texdoc",
+  "latex-workshop.view.pdf.tab.useNewGroup": true,
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.magic.args": [
+    "%DOC%"
+  ]
+}

@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "EditorConfig.EditorConfig",
+    "James-Yu.latex-workshop",
     "KnisterPeter.vscode-commitizen"
   ]
 }
