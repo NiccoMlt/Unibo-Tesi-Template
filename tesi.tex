@@ -113,6 +113,13 @@
       \bfseries\abstractname\end{center}}%
   {\vfill\null}
 
+\usepackage[%
+  % page,               % Aggiunge una pagina con la scritta Appendices
+  % toc,                % Aggiunge un campo Appendices nell'indice
+  titletoc,             % Aggiunge la parola Appendice per ogni capitolo dell'appendice nell'indice
+  title%                % Aggiunge la parola Appendice per ogni capitolo dell'appendice
+]{appendix}                     % modifica la gestione dell'appendice, e aggiunge l'ambiente appendices alternativo al comando \appendix
+
 \usepackage{microtype}          % gestisce la microtipografia
 
 % \usepackage{hyperref}         % gestisce tutte le cose ipertestuali del pdf; importato automaticamente
@@ -144,8 +151,12 @@
   \input{src/1-frontmatter/keywords.tex}
   \input{src/1-frontmatter/dedica.tex}
   \input{src/1-frontmatter/abstract.tex}
+  \tableofcontents
+
   \mainmatter{}
   \pagenumbering{arabic}
   \pagestyle{headings}
 Minimo documento
+  \appendix
+  \input{src/2-mainmatter/appendices.tex}
 \end{document}
