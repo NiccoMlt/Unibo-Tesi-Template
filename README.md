@@ -4,7 +4,21 @@
 
 Template LaTeX per una tesi Unibo
 
-## Dettagli
+## [Requisiti](https://corsi.unibo.it/magistrale/IngegneriaScienzeInformatiche/volume-pdf-e-deposito-online-dellelaborato) e [Norme redazionali](https://corsi.unibo.it/magistrale/IngegneriaScienzeInformatiche/redazione-tesi-voto-finale) della tesi
+
+- È vietato riprodurre il logo dell'Ateneo di Bologna su qualunque parte dell'elaborato;
+- il file non dovrà superare i 30Mb;
+- pagine di 32-35 righe, ciascuna di 65-70 caratteri di tipo prestabilito (Times New Roman, Arial, Courier o Helvetica);
+- lunghezza dell’elaborato compresa fra le 50.000 e le 100.000 battute (spazi inclusi);
+- corpo del testo di 12 o 13 punti (le note vanno in corpo 10);
+- margini destro-sinistro e superiore-inferiore di 2,5 cm;
+- interlinea 1,5 cm;
+- frontespizio conforme al [fac-simile](https://corsi.unibo.it/magistrale/IngegneriaScienzeInformatiche/volume-pdf-e-deposito-online-dellelaborato/frontespiziolmisi.pdf/@@download/file/FrontespizioLMISI.pdf);
+- figure e tavole in formato UNI (A4 e A3);
+- il file deve essere nominato nel modo: `cognome_nome_tesi`;
+- formato PDF.
+
+## Dettagli tecnici
 
 Il template è pensato per essere usato con il motore **LuaLaTeX** e non il "tradizionale" pdfLaTeX che ho già utilizzato in passato anche nella [mia tesi di laurea triennale](https://github.com/NiccoMlt/alchemist-thesis).
 
