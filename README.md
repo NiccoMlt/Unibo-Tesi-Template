@@ -32,6 +32,11 @@ Il font utilizzato è il _Latin Modern_ OpenType in tutte le varianti.
 
 Il PDF generato è conforme allo standard PDF/A-1b.
 
+La bibliografia è gestita tramite backend [`biber`](https://ctan.org/pkg/biber) e pacchetto [`biblatex`](https://www.ctan.org/pkg/biblatex);
+il database [`biblio.bib`](./biblio.bib) può essere editato a mano o con strumenti come [JabRef](http://www.jabref.org/).
+
+Lo stile scelto per la biblografia è quello [_IEEE_](https://ctan.org/pkg/biblatex-ieee).
+
 ## Riferimenti
 
 Per la realizzazione del template sono state molto utili, oltre a questi ultimi anni di utilizzo di LaTeX per la stesura di numerosi documenti, le guide fornite dal [GuIT](https://www.guitex.org/home/it/doc).
@@ -56,5 +61,6 @@ In particolare, segnalo:
 - Per approfondire cose utili per una tesi:
     - [Scrivere la tesi di laurea in LaTeX](http://www.guitex.org/home/images/doc/GuideGuIT/IntroTesi.pdf), di Agostino De Marco;
     - [La bibliografia in biblatex e i programmi di gestione dei record](http://www.guitex.org/home/images/doc/GuideGuIT/bibliografia.pdf), di Filippo Vomiero;
-    - [TOPtesi Class documentation (Italian)](http://ctan.mirror.garr.it/mirrors/CTAN/macros/latex/contrib/toptesi/toptesi-it.pdf), di Claudio Beccari.
-    - [frontespizio package documentation (Italian)](http://ctan.mirror.garr.it/mirrors/CTAN/macros/latex/contrib/frontespizio/frontespizio.pdf)
+    - [BibLaTeX package documentation (English)](http://ctan.mirror.garr.it/mirrors/CTAN/macros/latex/contrib/biblatex/doc/biblatex.pdf);
+    - [TOPtesi Class documentation (Italian)](http://ctan.mirror.garr.it/mirrors/CTAN/macros/latex/contrib/toptesi/toptesi-it.pdf), di Claudio Beccari;
+    - [frontespizio package documentation (Italian)](http://ctan.mirror.garr.it/mirrors/CTAN/macros/latex/contrib/frontespizio/frontespizio.pdf).

@@ -8,7 +8,6 @@
   "latex-workshop.hover.ref.enabled": true,
   "latex-workshop.intellisense.citation.label": "title",
   "latex-workshop.intellisense.package.enabled": true,
-  "latex-workshop.latex.recipe.default": "lastUsed",
   "latex-workshop.latex.recipes": [
     {
       "name": "arara",

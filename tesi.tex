@@ -6,6 +6,8 @@
 
 % arara: lualatex:      { interaction: batchmode }
 % arara: frontespizio:  { interaction: batchmode, engine: lualatex }
+% arara: biber
+% arara: lualatex:      { interaction: batchmode }
 % arara: lualatex:      { interaction: nonstopmode, synctex: yes }
 
 \documentclass[%
@@ -114,11 +116,32 @@
   {\vfill\null}
 
 \usepackage[%
+  maxcitenames=2,       % massimo numero di nomi nelle citazioni
+  mincitenames=2,       % minimo numero di nomi nelle citazioni
+  maxbibnames=99,       % massimo numero di nomi nella blibliografia
+  minbibnames=99,       % minimo numero di nomi nella blibliografia
+  style=ieee,           % imposta lo stile della blibliografia (numeric|alphabetic|authoryear|authortitle|verbose|...)
+  giveninits=true,
+  backend=biber         % specifica il backend per la bibliografia
+]{biblatex}                     % si interfaccia con bibtex e biber per la bibliografia
+\addbibresource{biblio.bib}
+\usepackage[%
   % page,               % Aggiunge una pagina con la scritta Appendices
   % toc,                % Aggiunge un campo Appendices nell'indice
   titletoc,             % Aggiunge la parola Appendice per ogni capitolo dell'appendice nell'indice
   title%                % Aggiunge la parola Appendice per ogni capitolo dell'appendice
 ]{appendix}                     % modifica la gestione dell'appendice, e aggiunge l'ambiente appendices alternativo al comando \appendix
+\usepackage[%
+    %notbib,            % rimuove la bibliografia dall'indice
+    notindex,           % rimuove l'indice dall'indice
+    nottoc,             % rimuove la Table of Contents dall'indice
+    notlot,             % rimuove la lista delle tabelle dall'indice
+    notlof,             % rimuove la lista delle figure dall'indice
+    %chapter,           % "Use chapter-level headings, if possible"
+    %section,           % "Use section-level headings, if possible"
+    %numbib             % numera il capitolo della bibliografia
+    %numindex           % numera il capitolo dell'indice
+]{tocbibind}                    % aggiunge cose all'indice
 
 \usepackage{microtype}          % gestisce la microtipografia
 
@@ -156,7 +179,12 @@
   \mainmatter{}
   \pagenumbering{arabic}
   \pagestyle{headings}
-Minimo documento
+  Minimo documento
   \appendix
   \input{src/2-mainmatter/appendices.tex}
+
+  \backmatter{}
+  \input{src/3-backmatter/bibliografia.tex}
+  \input{src/3-backmatter/ringraziamenti.tex}
+
 \end{document}
