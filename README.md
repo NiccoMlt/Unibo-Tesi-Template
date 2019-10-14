@@ -3,8 +3,19 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
+Template LaTeX per una tesi per l'Università di Bologna, Dipartimento di Informatica - Scienza e Ingegneria.
 
-Template LaTeX per una tesi Unibo
+## Tutorial
+
+Utilizzare il bottone <kbd>Use this template</kbd> per generare un nuovo repository per realizzare la propria tesi di laurea.
+
+[![Use this template explaination](https://help.github.com/assets/images/help/repository/use-this-template-button.png)](https://help.github.com/en/articles/creating-a-repository-from-a-template)
+
+Per l'utilizzo, si consiglia di utilizzare una versione recente di TeXLive (2018+), di MikTeX o di MacTeX (non testato) e di avere installato un Java Runtime Environment con versione compresa tra 5 e 10 (testato OpenJDK 8).
+
+Inoltre, si consiglia di installare Python 3.x e il pacchetto `pygments` per permettere l'evidenziazione del codice.
+
+Vedere la sezione [Dettagli tecnici](#dettagli-tecnici) per ulteriori dettagli.
 
 ## [Requisiti](https://corsi.unibo.it/magistrale/IngegneriaScienzeInformatiche/volume-pdf-e-deposito-online-dellelaborato) e [Norme redazionali](https://corsi.unibo.it/magistrale/IngegneriaScienzeInformatiche/redazione-tesi-voto-finale) della tesi
 
@@ -65,3 +76,12 @@ In particolare, segnalo:
     - [BibLaTeX package documentation (English)](http://ctan.mirror.garr.it/mirrors/CTAN/macros/latex/contrib/biblatex/doc/biblatex.pdf);
     - [TOPtesi Class documentation (Italian)](http://ctan.mirror.garr.it/mirrors/CTAN/macros/latex/contrib/toptesi/toptesi-it.pdf), di Claudio Beccari;
     - [frontespizio package documentation (Italian)](http://ctan.mirror.garr.it/mirrors/CTAN/macros/latex/contrib/frontespizio/frontespizio.pdf).
+
+## Licenza
+
+Il codice del documento è stato personalmente realizzato dal sottoscritto Niccolò Maltoni interpretando le norme relazionali del Dipartimento di Informatica, Scienza e Ingegneria dell'Università di Bologna pubblicate sul sito e cercando di allinearle agli standard tipografici italiani appresi con la lettura parziale del materiale linkato sopra.
+
+Il codice realizzato è inteso come un prodotto personale indipendente dall'Università di Bologna;
+per quanto io intenda utilizzare questo documento per la mia tesi di laurea magistrale, in nessun modo mi ritengo responsabile della produzione di documenti non validi a un utilizzo ufficiale di qualsiasi tipo tramite l'impiego di questo template.
+
+Il codice è fornito sotto licenza [Apache License, Version 2.0](https://opensource.org/licenses/Apache-2.0) in accordo al file [`LICENSE`](./LICENSE) incluso in questo repository.
