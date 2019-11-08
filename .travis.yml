@@ -29,6 +29,7 @@ script:
   - arara --log --verbose tesi.tex
   - chktex tesi.tex
 after_failure:
+  - cat ${TRAVIS_HOME}/.miktex/texmfs/data/miktex/log/lualatex.log
   - cat arara.log
   - cat report.log
 # TODO: per abilitare le release su GitHub, configurare quanto segue
