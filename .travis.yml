@@ -30,3 +30,13 @@ script:
 after_failure:
   - cat arara.log
   - cat report.log
+# TODO: per abilitare le release su GitHub, configurare quanto segue
+# deploy:
+#   provider: releases
+#   token:
+#     secure:
+#   file: "tesi.pdf"
+#   cleanup: true
+#   draft: true
+#   on:
+#     repo:
