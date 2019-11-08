@@ -5,13 +5,14 @@ language: shell
 addons:
   apt:
     packages:
-      - graphviz      # Graphviz è utilizzato per l'elaborazione dei file DOT e GV
-      - gnuplot       # Gnuplot è utilizzato per l'elaborazione delle figure in TikZ
-      - icc-profiles  # i profili colore sono necessari per la generazione di PDF/A
-      - miktex        # MikTeX è la distribuzione LaTeX scelta
+      - graphviz        # Graphviz è utilizzato per l'elaborazione dei file DOT e GV
+      - gnuplot         # Gnuplot è utilizzato per l'elaborazione delle figure in TikZ
+      - icc-profiles    # i profili colore sono necessari per la generazione di PDF/A
+      - miktex          # MikTeX è la distribuzione LaTeX scelta
       - openjdk-8-jre-headless  # arara richiede Java
-      - inkscape      # Inkscape è utilizzato per l'elaborazione di vettoriali SVG
-      - ghostscript   # Ghostscript è utilizzato per l'elaborazione di file EPS
+      - inkscape        # Inkscape è utilizzato per l'elaborazione di vettoriali SVG
+      - ghostscript     # Ghostscript è utilizzato per l'elaborazione di file EPS
+      - python-pygments # Pygments è utilizzato per la colorazione della sintassi del codice con minted
     sources:
       - sourceline: "deb http://miktex.org/download/ubuntu bionic universe"
         key_url: "http://keyserver.ubuntu.com/pks/lookup?op=get&search=miktex"
