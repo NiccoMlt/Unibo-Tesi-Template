@@ -1,0 +1,32 @@
+version: ~> 1.0
+os: linux
+dist: bionic
+language: shell
+addons:
+  apt:
+    packages:
+      - graphviz      # Graphviz è utilizzato per l'elaborazione dei file DOT e GV
+      - gnuplot       # Gnuplot è utilizzato per l'elaborazione delle figure in TikZ
+      - icc-profiles  # i profili colore sono necessari per la generazione di PDF/A
+      - miktex        # MikTeX è la distribuzione LaTeX scelta
+      - openjdk-8-jre-headless  # arara richiede Java
+      - inkscape      # Inkscape è utilizzato per l'elaborazione di vettoriali SVG
+      - ghostscript   # Ghostscript è utilizzato per l'elaborazione di file EPS
+    sources:
+      - sourceline: "deb http://miktex.org/download/ubuntu bionic universe"
+        key_url: "http://keyserver.ubuntu.com/pks/lookup?op=get&search=miktex"
+      - sourceline: "ppa:inkscape.dev/stable"
+install:
+  - sudo miktexsetup --shared=yes finish
+  - sudo initexmf --admin --set-config-value [MPM]AutoInstall=1
+  - arara --version     # scarica arara da MikTeX e ne visualizza la versione
+  - gs --version        # visualizza la versione di Ghostscript
+  - dot -V              # visualizza la versione di Graphviz
+  - pygmentize -V       # visualizza la versione di Pygments
+  - inkscape --version  # visualizza la versione di Inkscape
+script:
+  - arara --log --verbose tesi.tex
+  - chktex tesi.tex
+after_failure:
+  - cat arara.log
+  - cat report.log
