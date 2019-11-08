@@ -14,7 +14,7 @@ addons:
       - ghostscript     # Ghostscript è utilizzato per l'elaborazione di file EPS
       - python-pygments # Pygments è utilizzato per la colorazione della sintassi del codice con minted
     sources:
-      - sourceline: "deb http://miktex.org/download/ubuntu bionic universe"
+      - sourceline: "deb [arch=amd64] http://miktex.org/download/ubuntu bionic universe"
         key_url: "http://keyserver.ubuntu.com/pks/lookup?op=get&search=miktex"
       - sourceline: "ppa:inkscape.dev/stable"
 install:
