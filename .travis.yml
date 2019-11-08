@@ -21,7 +21,7 @@ install:
   - sudo miktexsetup --shared=yes finish
   - sudo initexmf --admin --set-config-value [MPM]AutoInstall=1
   - sudo mpm --admin --package-level=basic --find-upgrades --upgrade
-  - sudo mpm --admin --install=lm,lm-math,unicode-math
+  - sudo mpm --admin --install=lm-math,unicode-math
   - arara --version     # scarica arara da MikTeX e ne visualizza la versione
   - gs --version        # visualizza la versione di Ghostscript
   - dot -V              # visualizza la versione di Graphviz
