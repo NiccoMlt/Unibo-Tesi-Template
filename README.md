@@ -1,5 +1,6 @@
 # Unibo Tesi
 
+[![Build Status](https://travis-ci.com/NiccoMlt/Unibo-Tesi.svg?branch=master)](https://travis-ci.com/NiccoMlt/Unibo-Tesi)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
 [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
