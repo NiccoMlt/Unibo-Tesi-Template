@@ -28,3 +28,7 @@
     Anno Accademico 2019--2020%
   }
 \end{frontespizio}
+
+% Necessario per Overleaf: compila il TeX del frontespizio subito dopo averlo generato
+\IfFileExists{\jobname-frn.pdf}{}{%
+\immediate\write18{lualatex \jobname-frn}}
