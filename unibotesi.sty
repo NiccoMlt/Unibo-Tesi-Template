@@ -1,0 +1,162 @@
+% This package defines the Unibo Tesi packages configurations
+%
+% Copyright 2020 Niccolò Maltoni
+%
+% Licensed under the Apache License, Version 2.0 (the "License");
+% you may not use this file except in compliance with the License.
+% You may obtain a copy of the License at
+%
+%     http://www.apache.org/licenses/LICENSE-2.0
+%
+% Unless required by applicable law or agreed to in writing, software
+% distributed under the License is distributed on an "AS IS" BASIS,
+% WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+% See the License for the specific language governing permissions and
+% limitations under the License.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{unibotesi}[2020/01/23 v0.1 Unibo Tesi LaTeX template]
+
+% \RequirePackage{kvoptions}
+
+% \RequirePackage{minted}       % evidenzia la sintassi dei listati di codice; richiede pygments installato e shell-escape
+
+\RequirePackage[%
+  english,italian             % definizione delle lingue da usare
+]{varioref}                     % introduce il comando \vref da usarsi nello stesso modo del comune \ref per i riferimenti
+
+\RequirePackage[a-1b]{pdfx}
+\RequirePackage{shellesc}         % aggiunge il comando \write18 necessario su Overleaf per frontespizio
+
+%% Font
+% non è necessario \RequirePackage[utf8]{inputenc} perché luaLaTeX accetta solo UTF-8
+\RequirePackage{fontspec}
+\setmainfont[%
+  Ligatures=TeX               % abilita legature classiche di LaTeX
+]{Latin Modern Roman}           % imposta il font con grazie per il testo principale
+\setsansfont[%
+  Ligatures=TeX               % abilita legature classiche di LaTeX
+]{Latin Modern Sans}            % imposta il font senza grazie
+\setmonofont[%
+  Ligatures=TeX               % abilita legature classiche di LaTeX
+]{Latin Modern Mono}            % imposta il font teletype monospaziato
+
+%% Matematica
+\RequirePackage{amsmath}
+% non bisogna assolutamente invocare il pacchetto amssymb
+\RequirePackage[%
+  math-style=ISO              % per scrivere la matematica delle scienze sperimentali bisogna seguire le norme ISO
+]{unicode-math}                 % implementazione di glifi Unicode per caratteri matematici
+\setmathfont[%
+  Ligatures=TeX               % abilita legature classiche di LaTeX
+]{Latin Modern Math}
+\RequirePackage[%
+  output-decimal-marker={,},  % le convenzioni tipografiche italiane prevedono la virgola e non il punto
+  binary-units                % abilita le espressioni per bit e byte
+]{siunitx}                      % permette di definire numeri con unità di misura
+
+%% Lingue
+\RequirePackage[%
+  strict=true,                % converte tutti i warning in errori
+  autostyle=true,             % adatta continuamente lo stile delle virgolette alla lingua
+  english=american,           % imposta lo stile per l'inglese
+  italian=guillemets          % imposta lo stile per l'italiano
+]{csquotes}                     % configura le virgolette secondo gli stnadard della lingua
+\RequirePackage{polyglossia}
+\setmainlanguage[%
+  babelshorthands             % attiva il carattere " come switch per virgolettature etimologiche
+]{italian}                      % imposta l'italiano come lingua principale
+\setotherlanguage[%
+  variant=american            % imposta la variante americana dell'inglese
+]{english}                      % imposta l'inglese come lingua secondaria
+% non è necessario \RequirePackage{indentfirst} perché con lualatex il rientro del primo capoverso è preimpostato
+
+%% Altri pacchetti
+\RequirePackage{graphicx}           % serve per includere immagini e grafici
+\graphicspath{{res/fig}}      % importa la cartella res/fig/ come cartella da cui caricare le immagini
+\RequirePackage{xcolor}             % permette di usare colori
+% \RequirePackage{subcaption}       % serve per ottenere sottofigure
+% \RequirePackage{caption}          % permette di controllare la formattazione delle didascalie
+% \RequirePackage{adjustbox}        % permette di effettuare il crop delle immagini
+% \RequirePackage{ctable}           % permette di migliorare la spaziatura dell'ambiente tabular standard
+% \RequirePackage{flafter}          % impedisce alle figure di apparire prima della loro definizione nel testo
+\RequirePackage{scrhack}            % risolve incompatibilità tra KOMA e pacchatti vari (float, listings, ...)
+\RequirePackage{float}              % permette di forzare il posizionamento dell’oggetto nel punto in cui è situato con l’opzione H
+\RequirePackage{afterpage}          % permette di eseguire qualcosa nella pagina successiva con \afterpage{...} (ad esempio, figure)
+% \RequirePackage{placeins}         % permette di mettere delle barriere invalicabili per le figure con \FloatBarrier
+\RequirePackage[%
+  write,                      % (write|nowrite) genera o meno il file
+  standard,                   % (standard|suftesi) specifica tipo di frontespizio
+  normal,                     % (normal|sans) usa font con grazie anziché senza
+  noinputenc,                 % non carica inputenc (poiché usa lualatex)
+  % norules,                  % non vengono inseriti filetti nel frontespizio
+  nouppercase,                % con questa opzione verrà rispettato il maiuscolo e il minuscolo
+  driver=luatex               % imposta la chiamata di graphicx nel documento frn per l'uso di un driver diverso da dvips o pdftex
+]{frontespizio}
+\RequirePackage{geometry}           % permettte la modifica della gabbia del documento
+\geometry{
+  a4paper,                    % formato di pagina
+  heightrounded,              % modifica di poco le dimensioni della gabbia per contenere un numero intero di righe
+  hmargin=2.5cm,              % dimensioni margini destro-sinistro
+  vmargin=2.5cm               % dimensioni margini superiore-inferiore
+}
+\RequirePackage{setspace}           % serve a fornire comandi di interlinea standard
+\onehalfspacing{}             % imposta interlinea a 1,5 ed equivale a \linespread{1,5}
+
+%% Definizioni di comandi e ambienti
+%% Definisco un nuovo comando per enfatizzare il testo in inglese %%%%%%%%%%%
+\newcommand{\engEmph}[1] {\emph{\foreignlanguage{english}#1}}
+
+%% Aggiunge pagine bianche vuote %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}%
+%\cleardoublepage}}
+\clearpage}}
+
+%% Definisce l'environment abstract per la classe book %%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{abstract}%
+  {\cleardoublepage%
+    \thispagestyle{empty}%
+    \null\vfill\begin{center}%
+      \bfseries\abstractname\end{center}}%
+  {\vfill\null}
+
+\RequirePackage[%
+  maxcitenames=2,             % massimo numero di nomi nelle citazioni
+  mincitenames=2,             % minimo numero di nomi nelle citazioni
+  maxbibnames=99,             % massimo numero di nomi nella blibliografia
+  minbibnames=99,             % minimo numero di nomi nella blibliografia
+  style=ieee,                 % imposta lo stile della blibliografia (numeric|alphabetic|authoryear|authortitle|verbose|...)
+  giveninits=true,
+  backend=biber               % specifica il backend per la bibliografia
+]{biblatex}                     % si interfaccia con bibtex e biber per la bibliografia
+\addbibresource{biblio.bib}
+\RequirePackage[%
+  % page,                     % Aggiunge una pagina con la scritta Appendices
+  % toc,                      % Aggiunge un campo Appendices nell'indice
+  titletoc,                   % Aggiunge la parola Appendice per ogni capitolo dell'appendice nell'indice
+  title%                      % Aggiunge la parola Appendice per ogni capitolo dell'appendice
+]{appendix}                     % modifica la gestione dell'appendice, e aggiunge l'ambiente appendices alternativo al comando \appendix
+% \RequirePackage[htt]{hyphenat}    % permette la sillabazione dei blocchi di testo monospaziato
+% \RequirePackage{enumerate}        % aggiunge un argomento opzionale che determina come comporre l’etichetta numerata delle liste
+
+\RequirePackage{microtype}          % gestisce la microtipografia
+
+% \RequirePackage{hyperref}         % gestisce tutte le cose ipertestuali del pdf; importato automaticamente
+\hypersetup{%
+  pdfpagemode={UseNone},
+  hidelinks,                  % nasconde i collegamenti (non vengono quadrettati)
+  hypertexnames=false,
+  linktoc=all,                % inserisce i link nell'indice
+  unicode=true,               % usa solo caratteri Latini nei segnalibri di Acrobat
+  pdftoolbar=false,           % nasconde la toolbar di Acrobat
+  pdfmenubar=false,           % nasconde il menu di Acrobat
+  plainpages=false,
+  breaklinks,
+  pdfstartview={Fit},
+  pdflang={it}
+}
+
+\RequirePackage[%
+  english,italian,            % definizione delle lingue da usare
+  nameinlink                  % inserisce i link nei riferimenti
+]{cleveref}                     % permette di usare riferimenti migliori dei \ref e dei varioref
