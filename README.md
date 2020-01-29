@@ -20,6 +20,68 @@ Inoltre, si consiglia di installare Python 3.x e il pacchetto `pygments` per per
 
 Vedere la sezione [Dettagli tecnici](#dettagli-tecnici) per ulteriori dettagli.
 
+## Consigli
+
+### Linguaggio
+
+- Evitare sempre commenti non oggettivi/superficiali/informali (o sono supportati da citazioni o non si mettono).
+  Ad esempio: _banale_, _semplice_, _facile_, _difficile_, _molto_, _troppo_, _poco_, _impossibile_.
+- **Concisione**: Non scrivere frasi più lunghe di _due_ righe.
+- Evitare l'abuso di **grassetto** e _corsivo_.
+- il _corsivo_ è per l'enfasi, di conseguenza si consiglia di utilizzarlo per evidenziare una parola.
+  Usare `\emph{}` anziché `\textit{}`:
+  `\emph{}` capisce da solo come mettere in evidenza in modo diverso in casi diversi (non sempre in corsivo).
+- il **grassetto** è per una maggiore enfasi e, nella maggior parte dei casi, dovrebbe essere evitato.
+  Nel caso si intenda utilizzarlo, usare `\strong{}` anziché `\textbf{}`.
+
+### Inglesismi
+
+- Se le tesi è in italiano è bene scrivere in italiano e limitare l'uso dell'inglese il più possibile.
+- Usa un termine inglese se questo si ripete ma spiegalo una sola volta.
+- Un acronimo in inglese rimane in inglese.
+- La prima volta in assoluto che il termine compare scrivilo in corsivo.
+
+### Capitoli, Sezioni e Paragrafi
+
+- La classe è di tipo libro e, come tale, ha una gerarchia di questo tipo:
+  1. `\frontmatter`, `\mainmatter` e `\backmatter` (per distinguere le numerazioni)
+  2. `\chapter`
+  3. `\section`
+  4. `\subsection`
+  5. `\subsubsection`
+- Usare i riferimenti di Latex e le `label` per fare riferimento a capitoli/sezioni/sottosezioni/immagini:
+  - `\Cref{}` capisce automaticamente che tipo di cosa si sta riferendo, aggiungendola prima del numero.
+  - `\Vref{}` aggiunge anche la pagina oltre al tipo.
+  - <ins>**Non** usare il vecchio `\ref{}`</ins> specificando a mano cosa è cosa.
+  - Usare `Cref` e `Vref` e non le varianti minuscole `cref` e `vref`.
+  - Quando si descrive un argomento è bene averlo già introdotto: se non indispensabili, evitare dunque le _forword reference_ (riferimento a capitoli/sezioni/sottosezioni che appaiono dopo essere referenziati).
+- Non creare sezioni con singola sottosezione, o capitoli con un singola sezione.
+- C'è differenza tra `.` e `. a capo`: `. a capo` si usa per cambiare discorso.
+- Evitare di disperdere le informazioni: _definizione_, _dettagli_ e _implicazioni_ stanno nello stesso paragrafo.
+
+### Citazioni
+
+- Non citare Wikipedia, ma sfruttarla insieme a Google Scholar per trovare le citazioni a paper/libri.
+- Non copiare testi troppo lunghi, è meglio riassumerli ed elaborarli.
+- Non copiare traduzioni troppo lunghe, è meglio riassumerle ed elaborarle.
+- Esplicita la parte di testo copiata inserendola tra virgolette e aggiungi la citazione finale.
+  - il pacchetto `csquotes` offre alcuni comandi utili per virgolettare il testo.
+  - usa `\cite{}` per citare il riferimento dalla bibliografia e usa `~` invece dello spazio per mantenerla sulla stessa riga del testo citato.
+
+### Figure
+
+- Se una figura è copiata/rielaborata indica la sorgente.
+- Utilizzare figure in formato vettoriale: PostScript (`.eps`), PDF, SVG.
+- in caso di screenshot, attenzione alle dimensioni (in MB) della figura.
+
+### Punteggiatura, elenchi e coerenza
+
+- No punti nei titoli.
+- Non `E'` ma `È` (`È` = <kbd>Alt</kbd> + 0200 su Windows, tastiera italiana).
+- Elenchi puntati iniziano con Maiuscola, finiscono con `;` o con `.` (l'importante è usare la stessa convenzione).
+  - Di solito si usa `;` per terminare frasi di senso non compiuto, e `.` per terminare frasi di senso compiuto.
+- No `...`, sì "`etc.`".
+
 ## [Requisiti](https://corsi.unibo.it/magistrale/IngegneriaScienzeInformatiche/volume-pdf-e-deposito-online-dellelaborato) e [Norme redazionali](https://corsi.unibo.it/magistrale/IngegneriaScienzeInformatiche/redazione-tesi-voto-finale) della tesi
 
 - È vietato riprodurre il logo dell'Ateneo di Bologna su qualunque parte dell'elaborato;
