@@ -25,8 +25,16 @@
   english,italian             % definizione delle lingue da usare
 ]{varioref}                     % introduce il comando \vref da usarsi nello stesso modo del comune \ref per i riferimenti
 
-\RequirePackage[a-1b]{pdfx}
-\RequirePackage{shellesc}         % aggiunge il comando \write18 necessario su Overleaf per frontespizio
+\RequirePackage[
+  rgb,                        % richiesto da pdfx
+  hyperref,                   % richiesto da pdfx
+  luatex,
+  dvipsnames,
+  table,                      % permette di colorare le tabelle
+  xcdraw
+]{xcolor}                       % permette di usare colori
+\RequirePackage[a-1b]{pdfx}         % permette di generare PDF/A
+\RequirePackage{shellesc}           % aggiunge il comando \write18 necessario su Overleaf per frontespizio
 
 %% Font
 % non è necessario \RequirePackage[utf8]{inputenc} perché luaLaTeX accetta solo UTF-8
@@ -74,10 +82,19 @@
 %% Altri pacchetti
 \RequirePackage{graphicx}           % serve per includere immagini e grafici
 \graphicspath{{res/fig}}      % importa la cartella res/fig/ come cartella da cui caricare le immagini
-\RequirePackage{xcolor}             % permette di usare colori
-% \RequirePackage{subcaption}       % serve per ottenere sottofigure
-% \RequirePackage{caption}          % permette di controllare la formattazione delle didascalie
-% \RequirePackage{adjustbox}        % permette di effettuare il crop delle immagini
+\RequirePackage{subcaption}         % serve per ottenere sottofigure
+\RequirePackage{caption}            % permette di controllare la formattazione delle didascalie
+\RequirePackage{adjustbox}          % permette di effettuare il crop delle immagini
+\RequirePackage{xargs}
+\RequirePackage[
+  colorinlistoftodos,
+  prependcaption,
+  textsize=tiny
+]{todonotes}                    % permette di definire note a margine di cose da fare
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
 % \RequirePackage{ctable}           % permette di migliorare la spaziatura dell'ambiente tabular standard
 % \RequirePackage{flafter}          % impedisce alle figure di apparire prima della loro definizione nel testo
 \RequirePackage{scrhack}            % risolve incompatibilità tra KOMA e pacchatti vari (float, listings, ...)
