@@ -38,8 +38,16 @@
   english,italian             % definizione delle lingue da usare
 ]{varioref}                     % introduce il comando \vref da usarsi nello stesso modo del comune \ref per i riferimenti
 
-\usepackage[a-1b]{pdfx}
-\usepackage{shellesc}         % aggiunge il comando \write18 necessario su Overleaf per frontespizio
+\usepackage[
+  rgb,                        % richiesto da pdfx
+  hyperref,                   % richiesto da pdfx
+  luatex,
+  dvipsnames,
+  table,                      % permette di colorare le tabelle
+  xcdraw
+]{xcolor}                       % permette di usare colori
+\usepackage[a-1b]{pdfx}         % permette di generare PDF/A
+\usepackage{shellesc}           % aggiunge il comando \write18 necessario su Overleaf per frontespizio
 
 %% Font
 % non è necessario \usepackage[utf8]{inputenc} perché luaLaTeX accetta solo UTF-8
@@ -87,7 +95,6 @@
 %% Altri pacchetti
 \usepackage{graphicx}           % serve per includere immagini e grafici
 \graphicspath{{res/fig}}      % importa la cartella res/fig/ come cartella da cui caricare le immagini
-\usepackage{xcolor}             % permette di usare colori
 % \usepackage{subcaption}       % serve per ottenere sottofigure
 % \usepackage{caption}          % permette di controllare la formattazione delle didascalie
 % \usepackage{adjustbox}        % permette di effettuare il crop delle immagini
